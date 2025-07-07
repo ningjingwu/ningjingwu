@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NINGJING - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="portfolio-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h1 class="designer-name">NINGJING</h1>
+                <p class="designer-description">
+                    is a freelance designer and writer. <br> Available for work.
+                </p>
+            </div>
+            <div class="sidebar-contact">
+                <div class="contact-links">
+                    <div class="contact-spacer"></div>
+                    <a href="#" class="contact-link">Resume</a>
+                    <a href="mailto:contact@youcancallmening.com" class="contact-link">wu.ning.jing.2001@gmail.com</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- First Grid -->
+             
+            <section class="project-grid main-grid">
+                <article class="project-card" data-image-id="1">
+                    <video autoplay loop muted width="100%"; height="auto";>
+                    <source src="assets\URA\URA (1).mp4" type="video/mp4"alt="UI/UX Design for Urban Redevelopment Agency" class="project-image"> </video>
+                    <h3 class="project-title">UI/UX Design for Urban Redevelopment Agency</h3>
+                </article>
+                <article class="project-card" data-image-id="2">
+                    <img src="assets\Oxfam\Oxfam Thumbnail.png" alt="Oxfam Magazine" class="project-image">
+                    <h3 class="project-title">Oxfam Magazine</h3>
+                </article>
+            </section>
+            
+            <!-- Third Grid -->
+            <section class="project-grid third-grid">
+                <article class="project-card" data-image-id="6">
+                    <img src="assets\EWG\EWG Thumbnail.png" alt="Tembusu College Module Book" class="project-image">
+                    <h3 class="project-title">Tembusu College Module Book</h3>
+                </article>
+                <article class="project-card" data-image-id="7">
+                    <img src="assets\Posters\2.png" alt="Lucid State Gig Poster" class="project-image">
+                    <h3 class="project-title">Lucid State Gig Poster</h3>
+                </article>
+            </section>
+
+            <!-- Third Grid -->
+            <section class="project-grid second-grid">
+                <article class="project-card" data-image-id="5">
+                    <img src="assets\Posters\1.png" alt="Divinity Mag Launch Party Poster" class="project-image">
+                    <h3 class="project-title">Divinity Mag Launch Party Poster</h3>
+                </article>
+                <article class="project-card" data-image-id="4">
+                    <img src="assets\GP Textbook\GP Textbook Thumbnail.png" alt="Academia Singapore GP Textbook" class="project-image">
+                    <h3 class="project-title">Academia Singapore GP Textbook</h3>
+                </article>
+            </section>
+            
+            <!-- Second Grid -->
+            <section class="project-grid fourth-grid">
+                <article class="project-card" data-image-id="9">
+                    <img src="assets\Synthetic Memories\Synthetic Memories-01.png" alt="Synthetic Memories" class="project-image">
+                    <h3 class="project-title">Synthetic Memories, a Creative Coding Project</h3>
+                </article>
+                <article class="project-card" data-image-id="3">
+                    <img src="assets\Diptyque.png" alt="Diptyque Iconic Scents" class="project-image">
+                    <h3 class="project-title">Diptyque Iconic Scents</h3>
+                </article>
+                <div class="spacer"></div>
+                
+            </section>
+
+            
+            <!-- Fourth Grid -->
+            <section class="project-grid fifth-grid">
+                
+                <article class="project-card" data-image-id="9">
+                    <img src="assets\Personal Brand Guide\Final Brand Guide11.png" alt="Personal Brand Guide" class="project-image">
+                    <h3 class="project-title">Personal Brand Guide</h3>
+                </article>
+                <article class="project-card" data-image-id="1">
+                    <video autoplay loop muted width="100%"; height="auto";>
+                    <source src="assets\Logo Animation.mp4" type="video/mp4"alt="Logo Animation" class="project-image"> </video>
+                    <h3 class="project-title">Logo Animation</h3>
+                </article>
+            </section>
+
+        <!-- Contact Footer for Tablet -->
+        <footer class="contact-footer tablet-footer">
+            <div class="footer-content">
+                <a href="#" class="footer-link">Resume</a>
+                <a href="mailto:contact@youcancallmening.com" class="footer-link">contact@youcancallmening.com</a>
+            </div>
+        </footer>
+
+        <!-- Contact Footer for Mobile -->
+        <footer class="contact-footer mobile-footer">
+            <div class="footer-content">
+                <a href="#" class="footer-link">Resume</a>
+                <a href="mailto:contact@youcancallmening.com" class="footer-link">contact@youcancallmening.com</a>
+            </div>
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal-overlay" id="imageModal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Close modal">×</button>
+        <div class="modal-scroll-container" id="modalScrollContainer">
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <p class="modal-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet velit vitae justo fermentum facilisis.</p>
+            <img class="modal-placeholder" src="https://images.pexels.com/photos/32786895/pexels-photo-32786895.jpeg" alt="Placeholder 1">
+            <p class="modal-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <img class="modal-placeholder" src="https://images.pexels.com/photos/32786895/pexels-photo-32786895.jpeg" alt="Placeholder 2">
+            <p class="modal-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <img class="modal-placeholder" src="https://images.pexels.com/photos/32786895/pexels-photo-32786895.jpeg" alt="Placeholder 3">
+        </div>
+    </div>
+</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
