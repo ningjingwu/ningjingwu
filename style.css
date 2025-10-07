@@ -313,31 +313,16 @@ body {
     .main-content {
         width: 100%;
         margin-left: 0;
+        margin-right: 0;
     }
 
-    .main-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .second-grid {
-        grid-template-columns: 1fr;
-        margin-top: 64px;
-    }
-
-    .third-grid {
-        grid-template-columns: 1fr;
-        margin-top: 64px;
-    }
-
-    .fourth-grid {
-        grid-template-columns: 1fr;
-        margin-top: 64px;
-    }
-
+     /* Make ALL grids one column */
+    .main-grid,
+    .second-grid,
+    .third-grid,
+    .fourth-grid,
     .fifth-grid {
         grid-template-columns: 1fr;
-        margin-top: 64px;
-        margin-bottom: 64px;
     }
 
     .tablet-footer {
@@ -385,38 +370,19 @@ body {
         display: none;
     }
 
-    .main-content {
-        padding: 20px;
-    }
 
-    .main-grid {
-        grid-template-columns: repeat(0, 2, 1fr);
-        gap: 32px;
-        margin-top: 40px;
-        
-    }
-
-    .second-grid {
-        grid-template-columns: 1fr 3fr;
-        gap: 20px;
-    }
-
-    .third-grid {
-        grid-template-columns: 3fr 1fr;
-        gap: 20px;
-        margin-top: 40px;
-    }
-
-    .fourth-grid {
-        grid-template-columns: 4fr 1fr;
-        gap: 32px;
-        margin-top: 40px;
+    .main-grid,
+    .second-grid,
+    .third-grid,
+    .fourth-grid,
+    .fifth-grid {
+        grid-template-columns: 1fr;
     }
 
     .fifth-grid {
-       grid-template-columns: 3fr 2fr;
-       gap: 20px;
+        margin-bottom: 20px;
     }
+
 
     .tablet-footer {
         display: none;
