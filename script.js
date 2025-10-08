@@ -35,10 +35,10 @@ class PortfolioGallery {
         title: "Tembusu College Module Book",
         description: "A modern catalogue book designed for over 500 students at the National University of Singapore Tembusu College.",
         extraImages: [
-            "assets/EWG/IEMs5.png",
-            "assets/EWG/IEMs6.png",
-            "assets/EWG/Seminars20.png",
-            "assets/EWG/Seminars21.png"
+            "assets/EWG/IEMs5.avif",
+            "assets/EWG/IEMs6.avif",
+            "assets/EWG/Seminars20.avif",
+            "assets/EWG/Seminars21.avif"
         ],
     },
 
