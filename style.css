@@ -373,6 +373,7 @@ body {
         padding: 8px;
     }
 }
+}
 
 /* Mobile Styles */
 @media (max-width: 768px) {
@@ -446,4 +447,22 @@ body {
         padding: 8px;
     }
 }
+
+/* default skeleton while waiting */
+.project-image {
+  background: #f2f2f2;
 }
+
+/* tiny preview / skeleton is shown */
+.img-blur {
+  filter: blur(14px);
+  transform: scale(1.02);
+  transition: filter .35s ease, transform .35s ease, opacity .2s ease;
+}
+
+/* when hi-res is ready */
+.img-sharp {
+  filter: none;
+  transform: none;
+}
+
