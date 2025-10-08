@@ -5,7 +5,6 @@ class PortfolioGallery {
         this.modalImage = document.getElementById('modalImage');
         this.modalClose = document.getElementById('modalClose');
 
-        
         this.projectDetails = {
     1: {
         title: "UI/UX Design for Urban Redevelopment Agency Singapore",
@@ -227,40 +226,14 @@ openModal(imageId) {
 
         // Add extra images
         if (details.extraImages) {
-  const scroller = document.getElementById('modalScrollContainer');
-  const modalBodyImage = document.getElementById('modalBodyImage');
-
-  details.extraImages.forEach(src => {
-    const img = document.createElement('img');
-    img.alt = "Additional Project Image";
-    img.className = 'modal-placeholder img-blur';
-    img.loading = 'lazy';
-    img.decoding = 'async';
-    img.dataset.hi = src.replace(/\\/g, '/'); // keep your files; code handles swap
-    img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5"><rect width="100%" height="100%" fill="%23f2f2f2"/></svg>';
-    modalBodyImage.appendChild(img);
-  });
-
-  const ioModal = new IntersectionObserver((entries, obs) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const img = e.target;
-      const hi = img.dataset.hi;
-      const pre = new Image();
-      pre.decoding = 'async';
-      pre.onload = () => {
-        img.src = hi;
-        img.classList.add('img-sharp');
-        img.classList.remove('img-blur');
-        obs.unobserve(img);
-      };
-      pre.src = hi;
-    });
-  }, { root: scroller, rootMargin: '200px 0px' });
-
-  modalBodyImage.querySelectorAll('img[data-hi]').forEach(im => ioModal.observe(im));
-}
-
+            details.extraImages.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = "Additional Project Image";
+                img.classList.add('modal-placeholder'); // Or your own class
+                modalBodyImage.appendChild(img);
+            });
+        }
     }
 
     
@@ -309,142 +282,3 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 );
-
-// === Progressive thumbnails with local cache (no file changes) ===
-// Works for all <img class="project-image"> on the page.
-// First visit: shows lightweight skeleton/blur, loads hi-res, then swaps.
-// After that, it shows a REAL tiny thumbnail instantly from IndexedDB, then swaps to hi-res.
-
-(function () {
-  const TINY_SVG = 'data:image/svg+xml;utf8,\
-<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5">\
-<rect width="100%" height="100%" fill="%23f2f2f2"/></svg>';
-
-  // --- IndexedDB tiny cache ---
-  function openThumbDB() {
-    return new Promise((resolve, reject) => {
-      const req = indexedDB.open('thumbdb_v1', 1);
-      req.onupgradeneeded = e => e.target.result.createObjectStore('t');
-      req.onsuccess = e => resolve(e.target.result);
-      req.onerror = () => reject(req.error);
-    });
-  }
-  function idbGet(db, key) {
-    return new Promise((res, rej) => {
-      const tx = db.transaction('t', 'readonly');
-      const st = tx.objectStore('t');
-      const rq = st.get(key);
-      rq.onsuccess = () => res(rq.result || null);
-      rq.onerror = () => rej(rq.error);
-    });
-  }
-  function idbSet(db, key, val) {
-    return new Promise((res, rej) => {
-      const tx = db.transaction('t', 'readwrite');
-      tx.objectStore('t').put(val, key);
-      tx.oncomplete = () => res();
-      tx.onerror = () => rej(tx.error);
-    });
-  }
-
-  async function toDataURLFromCanvas(canvas, type = 'image/webp', quality = 0.6) {
-    if (canvas.convertToBlob) {
-      const blob = await canvas.convertToBlob({ type, quality });
-      return new Promise(r => {
-        const fr = new FileReader();
-        fr.onloadend = () => r(fr.result);
-        fr.readAsDataURL(blob);
-      });
-    }
-    return canvas.toDataURL(type, quality);
-  }
-
-  async function makeTinyFromImageBitmap(bmp, max = 24) {
-    const scale = Math.min(max / bmp.width, max / bmp.height);
-    const tw = Math.max(1, Math.round(bmp.width * scale));
-    const th = Math.max(1, Math.round(bmp.height * scale));
-    const canvas = (typeof OffscreenCanvas !== 'undefined')
-      ? new OffscreenCanvas(tw, th)
-      : Object.assign(document.createElement('canvas'), { width: tw, height: th });
-    if (!(canvas instanceof OffscreenCanvas)) { canvas.width = tw; canvas.height = th; }
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(bmp, 0, 0, tw, th);
-    return toDataURLFromCanvas(canvas);
-  }
-
-  async function generateAndCacheTiny(db, hiResURL, imgElForDecode) {
-    try {
-      // Use what we just loaded (fastest path)
-      const bmp = await createImageBitmap(imgElForDecode);
-      const tiny = await makeTinyFromImageBitmap(bmp);
-      await idbSet(db, hiResURL, tiny);
-    } catch { /* ignore */ }
-  }
-
-  function loadHiRes(img, hiURL, onReady) {
-    const loader = new Image();
-    loader.decoding = 'async';
-    loader.referrerPolicy = 'no-referrer'; // safe default
-    loader.onload = () => onReady(loader);
-    loader.onerror = () => onReady(null);
-    loader.src = hiURL;
-  }
-
-  document.addEventListener('DOMContentLoaded', async () => {
-    const db = await openThumbDB().catch(() => null);
-
-    // Prepare every thumbnail on the page
-    const imgs = Array.from(document.querySelectorAll('img.project-image'));
-    // Give the first image higher priority, rest lazy
-    imgs.forEach((img, i) => {
-      img.decoding = 'async';
-      img.loading = i < 1 ? 'eager' : 'lazy';
-      img.setAttribute('fetchpriority', i < 1 ? 'high' : 'low');
-
-      const hi = img.getAttribute('src');
-      img.dataset.hi = hi;
-    });
-
-    // Assign immediate tiny preview (cached or skeleton)
-    for (const img of imgs) {
-      const hi = img.dataset.hi;
-      let tiny = null;
-      if (db) tiny = await idbGet(db, hi).catch(() => null);
-
-      if (tiny) {
-        img.src = tiny;      // real tiny preview from previous visit
-      } else {
-        img.src = TINY_SVG;  // very cheap skeleton on first visit
-      }
-      img.classList.add('img-blur');
-    }
-
-    // Swap to hi-res when near viewport
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const img = e.target;
-        const hi = img.dataset.hi;
-        loadHiRes(img, hi, async (loaded) => {
-          if (loaded) {
-            // Swap to hi-res
-            img.src = hi;
-            img.classList.add('img-sharp');
-            img.classList.remove('img-blur');
-            // Build + cache tiny for next time (no file changes)
-            if (db) generateAndCacheTiny(db, hi, loaded);
-          } else {
-            // Fallback: just set the original if load failed to prefetch
-            img.src = hi;
-            img.classList.add('img-sharp');
-            img.classList.remove('img-blur');
-          }
-        });
-        obs.unobserve(img);
-      });
-    }, { rootMargin: '300px 0px' });
-
-    imgs.forEach(img => io.observe(img));
-  });
-})();
-
