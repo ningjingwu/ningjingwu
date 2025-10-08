@@ -10,8 +10,8 @@ class PortfolioGallery {
         title: "UI/UX Design for Urban Redevelopment Agency Singapore",
         description: "Component UI and icon designs for a geospatial urban planning web application.",
         extraImages: [
-            "assets/URA/URA (2).png",
-            "assets/URA/URA (3).png",
+            "assets/URA/URA (2).PNG",
+            "assets/URA/URA (3).PNG",
             "assets/URA/URA (4).PNG",
             "assets/URA/URA (5).PNG",
             "assets/URA/URA (6).PNG",
@@ -99,6 +99,23 @@ class PortfolioGallery {
     10: {
         title: "3D Logo Animation",
         description: "",
+    },
+
+    11: {
+        title: "NUS High School Class of 2020 Year Book",
+        description: "",
+        extraImages: [
+            "assets/Gradbook/Horizontal_Book_Mockup_5.png",
+            "assets/Gradbook/PSD-1.png",
+        ],
+    },
+
+    12: {
+        title: "Poster for UTC2102 Presentation",
+        description: "",
+        extraImages: [
+            "assets/Tech Talk Thumbnail.png",
+        ],
     },
 
 

@@ -137,6 +137,13 @@ body {
     margin-top: 80px;
 }
 
+.sixth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 80px;
+}
+
 /* Modal Styles */
 
 /* Modal container */
@@ -322,6 +329,7 @@ body {
     .second-grid,
     .third-grid,
     .fourth-grid,
+    .sixth-grid
     .fifth-grid {
         grid-template-columns: 1fr;
     }
@@ -358,7 +366,6 @@ body {
     }
 
     .main-content {
-        width: 90vw;
         margin-top: 100px; /* ← Add enough margin to push content below header */
         margin-bottom: 20px; /* Space for footer */
     }
@@ -376,7 +383,8 @@ body {
     .second-grid,
     .third-grid,
     .fourth-grid,
-    .fifth-grid {
+    .fifth-grid,
+    .sixth-grid{
         grid-template-columns: 1fr;
     }
 
