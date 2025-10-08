@@ -87,6 +87,7 @@ body {
     position: relative;
     transition: transform 0.3s ease;
     cursor: pointer;
+    color:#d6d6d6;
 }
 
 .project-card:hover {
