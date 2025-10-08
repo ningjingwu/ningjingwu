@@ -5,6 +5,48 @@ class PortfolioGallery {
         this.modalImage = document.getElementById('modalImage');
         this.modalClose = document.getElementById('modalClose');
 
+document.addEventListener('DOMContentLoaded', () => {
+  // 2a) Images: lazy by default, eager for first two tiles
+  const cards = Array.from(document.querySelectorAll('.project-card'));
+  const firstTwo = cards.slice(0, 2);
+
+  document.querySelectorAll('img.project-image').forEach(img => {
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.setAttribute('fetchpriority', 'low');
+  });
+
+  firstTwo.forEach(card => {
+    const heroImg = card.querySelector('img.project-image');
+    if (heroImg) {
+      heroImg.loading = 'eager';
+      heroImg.setAttribute('fetchpriority', 'high');
+    }
+  });
+
+  // 2b) Videos: don’t download until near viewport, then play
+  const videos = document.querySelectorAll('video');
+  videos.forEach(v => {
+    v.preload = 'none';     // prevent early network
+    v.muted = true;         // allow autoplay when visible
+    v.playsInline = true;
+  });
+
+  const vIO = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const v = e.target;
+      v.preload = 'metadata';
+      v.load();
+      v.play().catch(() => {}); // ignore autoplay blocks
+      obs.unobserve(v);
+    });
+  }, { rootMargin: '200px 0px' });
+
+  videos.forEach(v => vIO.observe(v));
+});
+
+
         this.projectDetails = {
     1: {
         title: "UI/UX Design for Urban Redevelopment Agency Singapore",
