@@ -10,24 +10,24 @@ class PortfolioGallery {
         title: "UI/UX Design for Urban Redevelopment Agency Singapore",
         description: "Component UI and icon designs for a geospatial urban planning web application.",
         extraImages: [
-            "assets/URA/URA (2).PNG",
-            "assets/URA/URA (3).PNG",
-            "assets/URA/URA (4).PNG",
-            "assets/URA/URA (5).PNG",
-            "assets/URA/URA (6).PNG",
-            "assets/URA/URA (7).PNG",
-            "assets/URA/URA (8).PNG",
-            "assets/URA/URA (9).PNG",
+            "assets/URA/URA (2).avif",
+            "assets/URA/URA (3).avif",
+            "assets/URA/URA (4).avif",
+            "assets/URA/URA (5).avif",
+            "assets/URA/URA (6).avif",
+            "assets/URA/URA (7).avif",
+            "assets/URA/URA (8).avif",
+            "assets/URA/URA (9).avif",
         ],
     },
     2: {
         title: "Oxfam Magazine",
         description: "Editorial layout and <a href='https://www.figma.com/design/fIV67WySy05R70rzG2z4Dg/Oxfam-Shop-Website-Prototype?node-id=0-1&t=TXZNwi5Hfz4UkrFb-1' target='_blank'>website</a> design for the non-profit organisation Oxfam.",
         extraImages: [
-            "assets/Oxfam/Oxfam Modal 1.png",
-            "assets/Oxfam/Oxfam Modal 2.png",
-            "assets/Oxfam/Oxfam Modal 3.png",
-            "assets/Oxfam/Oxfam Modal Website.PNG"
+            "assets/Oxfam/Oxfam Modal 1.avif",
+            "assets/Oxfam/Oxfam Modal 2.avif",
+            "assets/Oxfam/Oxfam Modal 3.avif",
+            "assets/Oxfam/Oxfam Modal Website.avif"
         ],
     },
 
@@ -56,10 +56,10 @@ class PortfolioGallery {
         title: "Academia Singapore GP Textbook",
         description: "Written, designed, and laid out a 180 page humanities guidebook for tertiary students.",
         extraImages: [
-            "assets/GP Textbook/GP Modal.png",
-            "assets/GP Textbook/GP Modal 2.png",
-            "assets/GP Textbook/GP Modal 3.png",
-            "assets/GP Textbook/GP Modal 4.png"
+            "assets/GP Textbook/GP Modal.avif",
+            "assets/GP Textbook/GP Modal 2.avif",
+            "assets/GP Textbook/GP Modal 3.avif",
+            "assets/GP Textbook/GP Modal 4.avif"
         ],
     },
 
@@ -68,9 +68,9 @@ class PortfolioGallery {
         description: "In “Synthetic Memories,” I explore the concept of memory and how it can be represented through abstract forms. I made use of p5.js, a JavaScript library for creative coding. Using photos taken from a trip to Japan, I used a Perlin noise algorithm to create shapes and patterns that have a fragmented and dream-like quality. <br> <br> Perlin noise is a type of noise algorithm that generates a harmonic succession of numbers that smoothly vary over time. This algorithm has been widely used in computer graphics and animation to create realistic textures and motion effects. <br> <br> The final image captures the original photo overlaid with a mesh-like distortion; as if the memories have transformed or altered over time.  You can test out the noise algorithm here and upload your own image <a href='https://editor.p5js.org/wu.ning.jing.2001/full/NlzhtAGep' target='_blank'>here</a>." 
 ,
         extraImages: [
-            "assets/Synthetic Memories/Synthetic Memories-02.png",
-            "assets/Synthetic Memories/Synthetic Memories-03.png",
-            "assets/Synthetic Memories/Synthetic Memories Code.png"
+            "assets/Synthetic Memories/Synthetic Memories-02.avif",
+            "assets/Synthetic Memories/Synthetic Memories-03.avif",
+            "assets/Synthetic Memories/Synthetic Memories Code.avif"
         ],
     },
 
@@ -83,16 +83,16 @@ class PortfolioGallery {
         title: "Personal Brand Guide",
         description: "",
         extraImages: [
-            "assets/Personal Brand Guide/Final Brand Guide.png",
-            "assets/Personal Brand Guide/Final Brand Guide2.png",
-            "assets/Personal Brand Guide/Final Brand Guide3.png",
-            "assets/Personal Brand Guide/Final Brand Guide4.png",
-            "assets/Personal Brand Guide/Final Brand Guide5.png",
-            "assets/Personal Brand Guide/Final Brand Guide6.png",
-            "assets/Personal Brand Guide/Final Brand Guide7.png",
-            "assets/Personal Brand Guide/Final Brand Guide8.png",
-            "assets/Personal Brand Guide/Final Brand Guide9.png",
-            "assets/Personal Brand Guide/Final Brand Guide10.png"
+            "assets/Personal Brand Guide/Final Brand Guide.avif",
+            "assets/Personal Brand Guide/Final Brand Guide2.avif",
+            "assets/Personal Brand Guide/Final Brand Guide3.avif",
+            "assets/Personal Brand Guide/Final Brand Guide4.avif",
+            "assets/Personal Brand Guide/Final Brand Guide5.avif",
+            "assets/Personal Brand Guide/Final Brand Guide6.avif",
+            "assets/Personal Brand Guide/Final Brand Guide7.avif",
+            "assets/Personal Brand Guide/Final Brand Guide8.avif",
+            "assets/Personal Brand Guide/Final Brand Guide9.avif",
+            "assets/Personal Brand Guide/Final Brand Guide10.avif"
         ],
     },
 
@@ -105,8 +105,8 @@ class PortfolioGallery {
         title: "NUS High School Class of 2020 Year Book",
         description: "",
         extraImages: [
-            "assets/Gradbook/Horizontal_Book_Mockup_5.png",
-            "assets/Gradbook/PSD-1.png",
+            "assets/Gradbook/Horizontal_Book_Mockup_5.avif",
+            "assets/Gradbook/PSD-1.avif",
         ],
     },
 
@@ -114,7 +114,7 @@ class PortfolioGallery {
         title: "Poster for UTC2102 Presentation",
         description: "",
         extraImages: [
-            "assets/Tech Talk Thumbnail.png",
+            "assets/Tech Talk Thumbnail.avif",
         ],
     },
 
