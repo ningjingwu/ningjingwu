@@ -282,3 +282,133 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 );
+
+
+// ===== Simple Photo Gallery Modal =====
+(function () {
+  const galleryModal = document.getElementById('galleryModal');
+  const galleryClose = document.getElementById('galleryClose');
+  const galleryGrid  = document.getElementById('galleryGrid');
+
+  // Brand-new images: put your actual files here (use forward slashes!)
+  const galleryImages = [
+    'assets/Gallery/DSCF1163.JPG',
+    'assets/Gallery/DSCF1629.JPG',
+    'assets/Gallery/DSCF4130.JPG',
+    'assets/Gallery/DSCF4469.JPG',
+    'assets/Gallery/f0345088.JPG',
+    'assets/Gallery/f2769472.JPG',
+    'assets/Gallery/P1010102.JPG',
+    'assets/Gallery/P1010132.JPG',
+    'assets/Gallery/P1010138.JPG',
+    'assets/Gallery/P1010174.JPG',
+    'assets/Gallery/P1010214.JPG',
+    'assets/Gallery/P1010288.JPG',
+    'assets/Gallery/P1010334.JPG',
+    'assets/Gallery/P1010349.JPG',
+    'assets/Gallery/P1010369.JPG',
+    'assets/Gallery/P1010454.JPG',
+    'assets/Gallery/P1010630.JPG',
+    'assets/Gallery/P1010749.JPG',
+    'assets/Gallery/P1010834.JPG',
+    'assets/Gallery/P1010867.JPG',
+    'assets/Gallery/P1010926.JPG',
+    'assets/Gallery/P1011023.JPG',
+    'assets/Gallery/P1011050.JPG',
+    'assets/Gallery/P1011067.JPG',
+    'assets/Gallery/P1011396.JPG',
+    'assets/Gallery/P1011488.JPG',
+    'assets/Gallery/P1011556.JPG',
+    'assets/Gallery/P1011617.JPG',
+    'assets/Gallery/P1011663.JPG',
+    'assets/Gallery/P1011805.JPG',
+    'assets/Gallery/P1011866.JPG',
+    'assets/Gallery/P1011872.JPG',
+    'assets/Gallery/P1011907.JPG',
+    'assets/Gallery/P1011982.JPG',
+    'assets/Gallery/P1011983.JPG',
+    'assets/Gallery/P1012011.JPG',
+    'assets/Gallery/P1012043.JPG',
+    'assets/Gallery/P1012070.JPG',
+    'assets/Gallery/P1012085.JPG',
+    'assets/Gallery/P1012093.JPG',
+    'assets/Gallery/P1012473.JPG',
+    'assets/Gallery/P1013061.JPG',
+    'assets/Gallery/P1013076.JPG',
+    'assets/Gallery/P1014389.JPG',
+    'assets/Gallery/P1040121.jpg',
+    'assets/Gallery/P1050869.JPG',
+  ];
+
+function shuffle(arr) {
+  // Fisher–Yates shuffle
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function populateGallery() {
+  galleryGrid.innerHTML = '';
+
+  // Randomize the order each open to avoid a repeated pattern
+  const randomized = shuffle([...galleryImages]);
+
+  randomized.forEach((src, i) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.alt = `Gallery image ${i + 1}`;
+
+    item.appendChild(img);
+    galleryGrid.appendChild(item);
+  });
+}
+
+
+  function openGallery(e) {
+    e?.preventDefault();
+    populateGallery();
+    galleryModal.classList.add('active');
+    galleryModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('galleryScrollContainer')?.focus();
+  }
+
+  function closeGallery() {
+    galleryModal.classList.remove('active');
+    galleryModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    galleryGrid.innerHTML = '';
+  }
+
+  // Open buttons (works for all footers + optional sidebar link)
+  document.querySelectorAll('.contact-link-js-open-gallery').forEach(el => {
+    el.addEventListener('click', openGallery);
+  });
+
+  document.querySelectorAll('.contact-link-js-open-gallery-mobile').forEach(el => {
+    el.addEventListener('click', openGallery);
+  });
+
+  // Close controls
+  galleryClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeGallery();
+  });
+
+  galleryModal.addEventListener('click', (e) => {
+    if (e.target === galleryModal) closeGallery();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && galleryModal.classList.contains('active')) {
+      closeGallery();
+    }
+  });
+})();

@@ -9,6 +9,16 @@
     <meta http-equiv="Cache-Control" content="max-age=31536000, must-revalidate">
 </head>
 
+<!-- NEW: Gallery Modal (place before </body>) -->
+<div class="modal-overlay" id="galleryModal" aria-hidden="true">
+  <div class="modal-content-gallery" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+    <button class="modal-close" id="galleryClose" aria-label="Close gallery">×</button>
+    <div class="modal-scroll-container" id="galleryScrollContainer" tabindex="0">
+      <div id="galleryGrid" class="gallery-grid" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
 <body>
     <div class="portfolio-container">
         <!-- Sidebar -->
@@ -18,6 +28,9 @@
                 <p class="designer-description">
                     is a freelance designer and writer. <br> Available for work.
                 </p>
+                <br>
+                <a href="#" class="contact-link-js-open-gallery">Browse photo gallery</a> <!-- NEW -->
+
             </div>
             <div class="sidebar-contact">
                 <div class="contact-links">
@@ -111,7 +124,9 @@
         <footer class="contact-footer tablet-footer">
             <div class="footer-content">
                 <a href="assets/Ningjing_Wu_Resume.pdf" class="contact-link" target="blank">Resume</a>
-                <a href="mailto:wu.ning.jing.2001@gmail.com" class="contact-link">wu.ning.jing.2001@gmail.com</a>
+                                <a href="#" class="contact-link-js-open-gallery-mobile">> browse photo gallery</a> <!-- NEW -->
+                <a href="mailto:wu.ning.jing.2001@gmail.com" class="contact-link">Contact</a>
+
             </div>
         </footer>
 
@@ -119,7 +134,9 @@
         <footer class="contact-footer mobile-footer">
             <div class="footer-content">
                 <a href="assets/Ningjing_Wu_Resume.pdf" class="contact-link" target="blank">Resume</a>
-                <a href="mailto:wu.ning.jing.2001@gmail.com" class="contact-link">wu.ning.jing.2001@gmail.com</a>
+                <a href="#" class="contact-link-js-open-gallery-mobile">Browse photo gallery</a> <!-- NEW -->
+                <a href="mailto:wu.ning.jing.2001@gmail.com" class="contact-link">Contact</a>
+
             </div>
         </footer>
 
