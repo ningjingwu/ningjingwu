@@ -1,3 +1,27 @@
+
+.contact-link,
+.contact-link:link,
+.contact-link:visited,
+.contact-link:hover,
+.contact-link:focus,
+.contact-link:active,
+.contact-link-js-open-gallery-mobile,
+.contact-link-js-open-gallery-mobile:link,
+.contact-link-js-open-gallery-mobile:visited,
+.contact-link-js-open-gallery-mobile:hover,
+.contact-link-js-open-gallery-mobile:focus,
+.contact-link-js-open-gallery-mobile:active,
+.contact-link-js-open-gallery,
+.contact-link-js-open-gallery:link,
+.contact-link-js-open-gallery:visited,
+.contact-link-js-open-gallery:hover,
+.contact-link-js-open-gallery:focus,
+.contact-link-js-open-gallery:active {
+  color: black;
+  text-decoration: underline; /* or none if you prefer */
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -16,16 +40,6 @@ body {
 .portfolio-container {
     display: flex;
     min-height: 100vh;
-}
-
-.contact-link,
-.contact-link:link,
-.contact-link:visited,
-.contact-link:hover,
-.contact-link:focus,
-.contact-link:active {
-  color: black;
-  text-decoration: underline; /* or none if you prefer */
 }
 
 /* Sidebar Styles */
