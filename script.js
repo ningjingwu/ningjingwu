@@ -336,8 +336,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'assets/Gallery/P1013061.JPG',
     'assets/Gallery/P1013076.JPG',
     'assets/Gallery/P1014389.JPG',
-    'assets/Gallery/P1040121.jpg',
     'assets/Gallery/P1050869.JPG',
+    'assets/Gallery/P1010434.jpg',
+    'assets/Gallery/P1013226.jpg',
+    'assets/Gallery/P1040124.JPG'
   ];
 
 function shuffle(arr) {
