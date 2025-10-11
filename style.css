@@ -245,8 +245,9 @@ body {
     background-color: white;
     border-radius: 2px;
     width: 100%;
-    max-width: 60vw;
-    height: 90vh;
+    max-width: 60vw;         
+  max-height: 90vh;       
+
     display: flex;
     flex-direction: column;
     position: relative;
